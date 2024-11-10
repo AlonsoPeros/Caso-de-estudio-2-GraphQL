@@ -1,0 +1,15 @@
+type Cuerpo {
+    id: ID!
+    denominacion: String!
+}
+
+type Query {
+    findById(id: ID!): Cuerpo
+    findAll: [Cuerpo]
+}
+
+type Mutation {
+    createCuerpo(denominacion: String!): Cuerpo
+    deleteById(id: ID!): String
+    updateCuerpo(id:ID!,denominacion:String!):Cuerpo
+}

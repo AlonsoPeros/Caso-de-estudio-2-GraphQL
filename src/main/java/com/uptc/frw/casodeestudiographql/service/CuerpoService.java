@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CuerpoService {
@@ -26,7 +27,29 @@ public class CuerpoService {
         cuerpoOld.setDenominacion(cuerpo.getDenominacion());
         return cuerpoRepository.save(cuerpo);
     }
-    public void delete(long id) {
-        cuerpoRepository.deleteById(id);
+    public String delete(Long id) {
+        Optional<Cuerpo> departamento = cuerpoRepository.findById(id);
+
+        if (departamento.isPresent()) {
+            cuerpoRepository.deleteById(id);
+            return "Cuerpo eliminado con éxito";
+        } else {
+            return "Cuerpo no fue encontrado";
+        }
     }
+
+    public Cuerpo update(Long id, String denominacion) {
+        Optional<Cuerpo> optionalCuerpo = cuerpoRepository.findById(id);
+
+        if (optionalCuerpo.isPresent()) {
+            Cuerpo cuerpoOld = optionalCuerpo.get();
+            // Solo actualiza los campos no nulos
+            if (denominacion != null) cuerpoOld.setDenominacion(denominacion);
+            return cuerpoRepository.save(cuerpoOld);
+        } else {
+            throw new RuntimeException("Cuerpo con id " + id + " no encontrado.");
+        }
+    }
+
+
 }
