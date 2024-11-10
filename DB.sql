@@ -92,3 +92,7 @@ ADD CONSTRAINT FK_COMPANIA_ID FOREIGN KEY (ID_COMPANIA)
 REFERENCES COMPANIA(ID_COMPANIA);
 
 create sequence CUERPOS_SEQ start with 1 increment by 1 maxvalue 1000000 minvalue 1 nocycle;
+create sequence COMPANIAS_SEQ start with 1 increment by 1 maxvalue 1000000 minvalue 1 nocycle;
+create sequence CUARTEL_SEQ start with 1 increment by 1 maxvalue 1000000 minvalue 1 nocycle;
+create sequence SERVICIOS_SEQ start with 1 increment by 1 maxvalue 1000000 minvalue 1 nocycle;
+create sequence SOLDADOS_SEQ start with 1 increment by 1 maxvalue 1000000 minvalue 1 nocycle;
