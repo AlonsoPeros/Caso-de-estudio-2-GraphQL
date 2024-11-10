@@ -1,5 +1,6 @@
 package com.uptc.frw.casodeestudiographql.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.List;
 public class Soldado {
     @Id
     @Column(name = "ID_SOLDADO")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqSoldados")
+    @SequenceGenerator(name = "seqSoldados",sequenceName = "SOLDADOS_SEQ",allocationSize = 1)
     private long id;
     @Column(name = "NOMBRE")
     private String nombre;

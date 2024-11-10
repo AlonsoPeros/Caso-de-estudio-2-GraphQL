@@ -9,6 +9,8 @@ import java.util.List;
 public class Servicio {
     @Id
     @Column(name = "ID_SERVICIO")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqServicios")
+    @SequenceGenerator(name = "seqServicios",sequenceName = "SERVICIOS_SEQ",allocationSize = 1)
     private int id;
     @Column(name = "DESCRIPCION")
     private String descripcion;
