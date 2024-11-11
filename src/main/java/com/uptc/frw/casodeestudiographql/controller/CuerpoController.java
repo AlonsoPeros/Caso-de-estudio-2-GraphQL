@@ -11,51 +11,34 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("cuerpos")
 @Controller
 public class CuerpoController {
     @Autowired
     private CuerpoService cuerpoService;
-    @GetMapping
+    //Query
     @QueryMapping
-    public List<Cuerpo> findAll(){
+    public List<Cuerpo> findAllCuerpos(){
         return cuerpoService.findAll();
     }
-    @GetMapping("{id}")
     @QueryMapping
-    public Cuerpo findById(@PathVariable @Argument long id){
+    public Cuerpo findCuerpo(@Argument long id){
         return cuerpoService.findById(id);
     }
-    @PostMapping
-    public Cuerpo save(@RequestBody Cuerpo cuerpo){
-        return cuerpoService.save(cuerpo);
-    }
-    @PutMapping
-    public Cuerpo update(@RequestBody Cuerpo cuerpo){
-        return cuerpoService.update(cuerpo);
-    }
-
-
-    //Mutaciones GraphQL(nuevos metodos necesarios para que funcione con GraphQL)
+    //Mutaciones
     @MutationMapping
     public Cuerpo createCuerpo(@Argument String denominacion) {
-        Cuerpo Cuerpo = new Cuerpo();
-        Cuerpo.setDenominacion(denominacion);
-        return cuerpoService.save(Cuerpo);
+        Cuerpo cuerpo = new Cuerpo();
+        cuerpo.setDenominacion(denominacion);
+        return cuerpoService.save(cuerpo);
     }
-
-    @DeleteMapping
     @MutationMapping
-    public String deleteById(@RequestParam @Argument long id){
+    public String deleteCuerpo(@Argument long id){
         return cuerpoService.delete(id);
     }
-
     @MutationMapping
     public Cuerpo updateCuerpo(
             @Argument Long id,
             @Argument String denominacion) {
-
         return cuerpoService.update(id, denominacion);
     }
 

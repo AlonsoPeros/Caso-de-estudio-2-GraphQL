@@ -22,15 +22,11 @@ public class CuerpoService {
     public Cuerpo save(Cuerpo cuerpo) {
         return cuerpoRepository.save(cuerpo);
     }
-    public Cuerpo update(Cuerpo cuerpo) {
-        Cuerpo cuerpoOld = findById(cuerpo.getId());
-        cuerpoOld.setDenominacion(cuerpo.getDenominacion());
-        return cuerpoRepository.save(cuerpo);
-    }
-    public String delete(Long id) {
-        Optional<Cuerpo> departamento = cuerpoRepository.findById(id);
 
-        if (departamento.isPresent()) {
+    public String delete(Long id) {
+        Optional<Cuerpo> cuerpo = cuerpoRepository.findById(id);
+
+        if (cuerpo.isPresent()) {
             cuerpoRepository.deleteById(id);
             return "Cuerpo eliminado con éxito";
         } else {

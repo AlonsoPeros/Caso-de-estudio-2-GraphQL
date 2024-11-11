@@ -3,13 +3,25 @@ type Cuerpo {
     denominacion: String!
 }
 
+type Compania {
+    id: ID!
+    actividad: String!
+}
+
 type Query {
-    findById(id: ID!): Cuerpo
-    findAll: [Cuerpo]
+    findCuerpo(id: ID!): Cuerpo
+    findAllCuerpos: [Cuerpo]
+    findCompania(id: ID!): Compania
+    findAllCompanias: [Compania]
 }
 
 type Mutation {
     createCuerpo(denominacion: String!): Cuerpo
-    deleteById(id: ID!): String
+    deleteCuerpo(id: ID!): String
     updateCuerpo(id:ID!,denominacion:String!):Cuerpo
+
+    createCompania(actividad: String!): Compania
+    deleteCompania(id: ID!): String
+    updateCompania(id:ID!,actividad:String!):Compania
 }
+
