@@ -3,7 +3,7 @@ package com.uptc.frw.casodeestudiographql.jpa.model;
 import jakarta.persistence.*;
 
 import java.util.List;
-
+//ggg
 @Entity
 @Table(name = "COMPANIA")
 public class Compania {
