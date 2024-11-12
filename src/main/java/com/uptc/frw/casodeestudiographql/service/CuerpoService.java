@@ -13,13 +13,17 @@ public class CuerpoService {
     @Autowired
     private CuerpoRepository cuerpoRepository;
 
-    public List<Cuerpo> findAll() {
+    public List<Cuerpo> findAll()
+    {
         return cuerpoRepository.findAll();
     }
-    public Cuerpo findById(Long id) {
+
+    public Cuerpo findById(Long id)
+    {
         return cuerpoRepository.findById(id).orElse(null);
     }
-    public Cuerpo save(Cuerpo cuerpo) {
+    public Cuerpo save(Cuerpo cuerpo)
+    {
         return cuerpoRepository.save(cuerpo);
     }
 

@@ -12,6 +12,7 @@ public class Cuerpo {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqCuerpos")
     @SequenceGenerator(name = "seqCuerpos",sequenceName = "CUERPOS_SEQ",allocationSize = 1)
     private long id;
+
     @Column(name = "DENOMINACION")
     private String denominacion;
 

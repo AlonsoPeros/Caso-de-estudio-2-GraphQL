@@ -13,13 +13,15 @@ import java.util.List;
 
 @Controller
 public class CompaniaController {
+
     @Autowired
     private CompaniaService companiaService;
-    //Query
+
     @QueryMapping
     public List<Compania> findAllCompanias() {
         return companiaService.findAllServicios();
     }
+
     @QueryMapping
     public Compania findCompania(@Argument long id) {
         return companiaService.findById(id);

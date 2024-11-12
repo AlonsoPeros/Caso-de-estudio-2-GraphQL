@@ -16,6 +16,8 @@ public class CompaniaService {
     public List<Compania> findAllServicios() {
         return companiaRepository.findAll();
     }
+
+
     public Compania findById(Long id) {
         return companiaRepository.findById(id).orElse(null);
     }

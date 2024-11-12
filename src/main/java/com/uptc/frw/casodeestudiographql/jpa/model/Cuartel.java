@@ -12,13 +12,16 @@ public class Cuartel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqCuartel")
     @SequenceGenerator(name = "seqCuartel",sequenceName = "CUARTEL_SEQ",allocationSize = 1)
     private long id;
+
     @Column(name = "NOMBRE")
     private String nombre;
+
     @Column(name = "UBICACION")
     private String ubicacion;
 
     @OneToMany(mappedBy="cuartel")
     private List<Soldado> soldados;
+
     @ManyToMany(mappedBy = "cuarteles")
     private List<Compania> companias;
 
