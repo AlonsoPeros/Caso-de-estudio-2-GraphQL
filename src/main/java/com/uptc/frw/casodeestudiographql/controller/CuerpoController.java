@@ -35,6 +35,7 @@ public class CuerpoController {
     public String deleteCuerpo(@Argument long id){
         return cuerpoService.delete(id);
     }
+    //actualizando
     @MutationMapping
     public Cuerpo updateCuerpo(
             @Argument Long id,

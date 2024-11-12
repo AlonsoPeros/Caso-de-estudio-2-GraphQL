@@ -38,6 +38,8 @@ type Mutation {
     createCuartel(nombre:String!, ubicacion:String!):Cuartel
     deleteCuartel(id:ID!):String
     updateCuartel(id:ID!,nombre:String!,ubicacion:String!):Cuartel
+
+
 }
 
 
