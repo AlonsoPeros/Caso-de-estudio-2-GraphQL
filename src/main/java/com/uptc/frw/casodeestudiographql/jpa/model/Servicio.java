@@ -11,7 +11,8 @@ public class Servicio {
     @Column(name = "ID_SERVICIO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqServicios")
     @SequenceGenerator(name = "seqServicios",sequenceName = "SERVICIOS_SEQ",allocationSize = 1)
-    private int id;
+    private long id;
+
     @Column(name = "DESCRIPCION")
     private String descripcion;
 
@@ -21,11 +22,11 @@ public class Servicio {
     public Servicio() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -35,6 +36,14 @@ public class Servicio {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public List<SoldadoServicio> getSoldados() {
+        return soldados;
+    }
+
+    public void setSoldados(List<SoldadoServicio> soldados) {
+        this.soldados = soldados;
     }
 
     @Override
