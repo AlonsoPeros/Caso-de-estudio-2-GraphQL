@@ -14,6 +14,11 @@ type Cuartel {
     ubicacion:String!
 }
 
+type Servicio{
+    id:ID!
+    descripcion:String!
+}
+
 type Query {
     findCuerpo(id: ID!): Cuerpo
     findAllCuerpos: [Cuerpo]
@@ -21,6 +26,8 @@ type Query {
     findAllCompanias: [Compania]
     findAllCuartels: [Cuartel]
     findCuartelById(id:ID!): Cuartel
+    finAllServicio:[Servicio]
+    findServicioById(id:ID!):Servicio
 
 
 
@@ -38,6 +45,10 @@ type Mutation {
     createCuartel(nombre:String!, ubicacion:String!):Cuartel
     deleteCuartel(id:ID!):String
     updateCuartel(id:ID!,nombre:String!,ubicacion:String!):Cuartel
+
+    createServicio(descripcion:String!):Servicio
+    deleteServicio(id:ID!):String
+    updateServicio(id:ID!,descripcion:String!):Servicio
 
 
 }

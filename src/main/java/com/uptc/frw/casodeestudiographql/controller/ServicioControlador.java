@@ -28,7 +28,7 @@ public class ServicioControlador {
     }
 
     @MutationMapping
-    public Servicio addServicio(@Argument String descripcion) {
+    public Servicio createServicio(@Argument String descripcion) {
         Servicio servicio = new Servicio();
         servicio.setDescripcion(descripcion);
         return servicioService.saveServicio(servicio);
