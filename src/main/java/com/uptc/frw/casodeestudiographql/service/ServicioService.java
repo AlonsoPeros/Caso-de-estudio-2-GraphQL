@@ -16,8 +16,6 @@ public class ServicioService {
 
     @Autowired
     private ServicioRepository servicioRepository;
-    @Autowired
-    private CuartelRepository cuartelRepository;
 
     public List<Servicio> findAllServicio() {
         return servicioRepository.findAll();
@@ -36,7 +34,7 @@ public class ServicioService {
         Optional<Servicio> servicio = servicioRepository.findById(id);
 
         if (servicio.isPresent()) {
-            cuartelRepository.deleteById(id);
+            servicioRepository.deleteById(id);
             return "Servicio eliminado";
         }else {
             return "El servicio no existe";
