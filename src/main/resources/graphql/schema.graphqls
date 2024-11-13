@@ -24,6 +24,13 @@ type Soldado{
     apellido: String!
     grado: Float!
 }
+type SoldadoServicio {
+    idSoldado: Float!
+    idServicio: Float!
+    fechaServicio: String!
+    soldado: Soldado
+    servicio: Servicio
+}
 type Query {
     findCuerpo(id: ID!): Cuerpo
     findAllCuerpos: [Cuerpo]
@@ -35,6 +42,8 @@ type Query {
     findServicioById(id:ID!):Servicio
     findAllSoldados: [Soldado]
     findSoldadoById(id:ID!): Soldado
+    getSoldadosServicios: [SoldadoServicio]
+    getSoldadoServicio(idSoldado: Float, idServicio: Float): SoldadoServicio
 
 
 
@@ -64,6 +73,8 @@ type Mutation {
     deleteSoldado(id: ID!):String
     updateSoldado(id:ID!,nombre: String!, apellido: String!, grado: Float!):Soldado
 
+    createSoldadoServicio(idSoldado: Float, idServicio: Float, fechaServicio: String): SoldadoServicio
+    deleteSoldadoServicio(idSoldado: Float, idServicio: Float): Boolean
 
 }
 

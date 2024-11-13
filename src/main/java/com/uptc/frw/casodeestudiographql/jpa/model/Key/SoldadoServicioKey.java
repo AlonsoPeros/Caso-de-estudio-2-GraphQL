@@ -3,26 +3,51 @@ package com.uptc.frw.casodeestudiographql.jpa.model.Key;
 import com.uptc.frw.casodeestudiographql.jpa.model.Servicio;
 import com.uptc.frw.casodeestudiographql.jpa.model.Soldado;
 
-public class SoldadoServicioKey {
-    private Soldado soldado;
-    private Servicio servicio;
+import java.io.Serializable;
+import java.util.Objects;
+
+public class SoldadoServicioKey implements Serializable {
+    private long idSoldado;
+    private long idServicio;
 
     public SoldadoServicioKey() {
     }
 
-    public Soldado getSoldado() {
-        return soldado;
+    public SoldadoServicioKey(long idSoldado, long idServicio) {
+        this.idSoldado = idSoldado;
+        this.idServicio = idServicio;
     }
 
-    public void setSoldado(Soldado soldado) {
-        this.soldado = soldado;
+    // Getters y Setters
+
+    public long getIdSoldado() {
+        return idSoldado;
     }
 
-    public Servicio getServicio() {
-        return servicio;
+    public void setIdSoldado(long idSoldado) {
+        this.idSoldado = idSoldado;
     }
 
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
+    public long getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(long idServicio) {
+        this.idServicio = idServicio;
+    }
+
+    // Métodos hashCode y equals
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SoldadoServicioKey that = (SoldadoServicioKey) o;
+        return idSoldado == that.idSoldado && idServicio == that.idServicio;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idSoldado, idServicio);
     }
 }
