@@ -6,20 +6,21 @@ import com.uptc.frw.casodeestudiographql.jpa.model.Soldado;
 import java.io.Serializable;
 import java.util.Objects;
 
+
+
 public class SoldadoServicioKey implements Serializable {
     private long idSoldado;
     private long idServicio;
-
-    public SoldadoServicioKey() {
-    }
 
     public SoldadoServicioKey(long idSoldado, long idServicio) {
         this.idSoldado = idSoldado;
         this.idServicio = idServicio;
     }
 
-    // Getters y Setters
+    // Constructor vacío
+    public SoldadoServicioKey() {}
 
+    // Getters y setters
     public long getIdSoldado() {
         return idSoldado;
     }
@@ -36,8 +37,7 @@ public class SoldadoServicioKey implements Serializable {
         this.idServicio = idServicio;
     }
 
-    // Métodos hashCode y equals
-
+    // equals y hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

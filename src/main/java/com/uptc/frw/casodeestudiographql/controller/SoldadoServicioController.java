@@ -25,8 +25,8 @@ public class SoldadoServicioController {
 
     // Resolver para la consulta getSoldadoServicio
     @QueryMapping
-    public SoldadoServicio getSoldadoServicio(@Argument long idSoldado, @Argument long idServicio) {
-        SoldadoServicioKey key = new SoldadoServicioKey(idSoldado, idServicio);
+    public SoldadoServicio getSoldadoServicio(@Argument Long idSoldado, @Argument Long idServicio) {
+        SoldadoServicioKey key = new SoldadoServicioKey(idSoldado,idServicio);
         return soldadoServicioService.getSoldadoServicio(key).orElse(null);
     }
 

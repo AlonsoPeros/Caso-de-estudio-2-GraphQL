@@ -28,7 +28,7 @@ public class CuartelController {
     }
 
     @MutationMapping
-    public Cuartel createCuartel(@Argument String nombre, String ubicacion) {
+    public Cuartel createCuartel(@Argument String nombre, @Argument String ubicacion) {
         Cuartel cuartel = new Cuartel();
         cuartel.setNombre(nombre);
         cuartel.setUbicacion(ubicacion);

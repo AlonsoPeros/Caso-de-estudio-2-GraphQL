@@ -9,25 +9,27 @@ import java.util.Date;
 @Table(name = "SOLDADO_SERVICIO")
 @IdClass(SoldadoServicioKey.class)
 public class SoldadoServicio {
-    @Column(name = "ID_SOLDADO",insertable=false, updatable=false)
+
+    @Id
+    @Column(name = "ID_SOLDADO", insertable = false, updatable = false)
     private long idSoldado;
-    @Column(name = "ID_SERVICIO",insertable=false, updatable=false)
+
+    @Id
+    @Column(name = "ID_SERVICIO", insertable = false, updatable = false)
     private long idServicio;
+
     @Column(name = "FECHA")
     private Date fechaServicio;
 
-    @Id
     @ManyToOne
-    @JoinColumn(name = "ID_SOLDADO")
+    @JoinColumn(name = "ID_SOLDADO", insertable = false, updatable = false)
     private Soldado soldado;
-    @Id
+
     @ManyToOne
-    @JoinColumn(name = "ID_SERVICIO")
+    @JoinColumn(name = "ID_SERVICIO", insertable = false, updatable = false)
     private Servicio servicio;
 
-    public SoldadoServicio() {
-    }
-
+    // Getters y setters
     public long getIdSoldado() {
         return idSoldado;
     }
@@ -36,20 +38,20 @@ public class SoldadoServicio {
         this.idSoldado = idSoldado;
     }
 
-    public Date getFechaServicio() {
-        return fechaServicio;
-    }
-
-    public void setFechaServicio(Date fechaServicio) {
-        this.fechaServicio = fechaServicio;
-    }
-
     public long getIdServicio() {
         return idServicio;
     }
 
     public void setIdServicio(long idServicio) {
         this.idServicio = idServicio;
+    }
+
+    public Date getFechaServicio() {
+        return fechaServicio;
+    }
+
+    public void setFechaServicio(Date fechaServicio) {
+        this.fechaServicio = fechaServicio;
     }
 
     public Soldado getSoldado() {
@@ -66,14 +68,5 @@ public class SoldadoServicio {
 
     public void setServicio(Servicio servicio) {
         this.servicio = servicio;
-    }
-
-    @Override
-    public String toString() {
-        return "SoldadoServicio{" +
-                "idSoldado=" + idSoldado +
-                ", idServicio=" + idServicio +
-                ", fechaServicio=" + fechaServicio +
-                '}';
     }
 }
