@@ -26,15 +26,18 @@ public class Soldado {
     @Column(name = "ID_CUARTEL",insertable=false, updatable=false)
     private long idCuartel;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_CUARTEL")
     private Cuartel cuartel;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_COMPANIA")
     private Compania compania;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_CUERPO")
     private Cuerpo cuerpo;
+
     @OneToMany(mappedBy = "soldado")
     private List<SoldadoServicio> servicios;
 
