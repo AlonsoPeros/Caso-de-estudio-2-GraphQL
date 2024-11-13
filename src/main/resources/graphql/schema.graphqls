@@ -18,7 +18,12 @@ type Servicio{
     id:ID!
     descripcion:String!
 }
-
+type Soldado{
+    id :ID!
+    nombre: String!
+    apellido: String!
+    grado: Float!
+}
 type Query {
     findCuerpo(id: ID!): Cuerpo
     findAllCuerpos: [Cuerpo]
@@ -28,6 +33,11 @@ type Query {
     findCuartelById(id:ID!): Cuartel
     finAllServicio:[Servicio]
     findServicioById(id:ID!):Servicio
+    findAllSoldados: [Soldado]
+    findSoldadoById(id:ID!): Soldado
+
+
+
 
 
 
@@ -49,6 +59,10 @@ type Mutation {
     createServicio(descripcion:String!):Servicio
     deleteServicio(id:ID!):String
     updateServicio(id:ID!,descripcion:String!):Servicio
+
+    createSoldado(nombre: String!, apellido: String!, grado: Float!): Soldado
+    deleteSoldado(id: ID!):String
+    updateSoldado(id:ID!,nombre: String!, apellido: String!, grado: Float!):Soldado
 
 
 }
