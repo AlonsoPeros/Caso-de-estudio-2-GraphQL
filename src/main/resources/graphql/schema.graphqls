@@ -9,82 +9,78 @@ type Compania {
 }
 
 type Cuartel {
-    id:ID!
-    nombre:String!
-    ubicacion:String!
+    id: ID!
+    nombre: String!
+    ubicacion: String!
 }
 
-type Servicio{
-    id:ID!
-    descripcion:String!
+type Servicio {
+    id: ID!
+    descripcion: String!
 }
+
 type Soldado {
-    id: ID
-    nombre: String
-    apellido: String
-    grado: Int
-    idCuerpo: Cuartel
-    idCompania: Compania
-    idCuartel: Cuerpo
+    id: ID!
+    nombre: String!
+    apellido: String!
+    grado: Int!
+    cuerpo: Cuerpo!
+    compania: Compania!
+    cuartel: Cuartel!
 }
-
 
 type SoldadoServicio {
-    idSoldado: Int!
-    idServicio: Int!
+    idSoldado: ID!
+    idServicio: ID!
     fechaServicio: String!
     soldado: Soldado
     servicio: Servicio
 }
+
 type Query {
     findCuerpo(id: ID!): Cuerpo
     findAllCuerpos: [Cuerpo]
     findCompania(id: ID!): Compania
     findAllCompanias: [Compania]
     findAllCuartels: [Cuartel]
-    findCuartelById(id:ID!): Cuartel
-    finAllServicio:[Servicio]
-    findServicioById(id:ID!):Servicio
-    findallSoldados:[Soldado]
-    findSsoldadoById(id: ID!): Soldado
+    findCuartelById(id: ID!): Cuartel
+    findAllServicios: [Servicio]
+    findServicioById(id: ID!): Servicio
+    findAllSoldados: [Soldado]
+    findSoldadoById(id: ID!): Soldado
     getSoldadosServicios: [SoldadoServicio]
-    getSoldadoServicio(idSoldado: Int, idServicio: Int): SoldadoServicio
-
+    getSoldadoServicio(idSoldado: ID, idServicio: ID): SoldadoServicio
 }
 
 type Mutation {
     createCuerpo(denominacion: String!): Cuerpo
     deleteCuerpo(id: ID!): String
-    updateCuerpo(id:ID!,denominacion:String!):Cuerpo
+    updateCuerpo(id: ID!, denominacion: String!): Cuerpo
 
     createCompania(actividad: String!): Compania
     deleteCompania(id: ID!): String
-    updateCompania(id:ID!,actividad:String!):Compania
+    updateCompania(id: ID!, actividad: String!): Compania
 
-    createCuartel(nombre:String!, ubicacion:String!):Cuartel
-    deleteCuartel(id:ID!):String
-    updateCuartel(id:ID!,nombre:String!,ubicacion:String!):Cuartel
+    createCuartel(nombre: String!, ubicacion: String!): Cuartel
+    deleteCuartel(id: ID!): String
+    updateCuartel(id: ID!, nombre: String!, ubicacion: String!): Cuartel
 
-    createServicio(descripcion:String!):Servicio
-    deleteServicio(id:ID!):String
-    updateServicio(id:ID!,descripcion:String!):Servicio
+    createServicio(descripcion: String!): Servicio
+    deleteServicio(id: ID!): String
+    updateServicio(id: ID!, descripcion: String!): Servicio
 
     createSoldado(
         nombre: String!,
         apellido: String!,
         grado: Int!,
-        idCuartel: Int!,
-        idCompania: Int!,
-        idCuerpo: Int!
+        idCuartel: ID!,
+        idCompania: ID!,
+        idCuerpo: ID!
     ): Soldado
 
     updateSoldado(id: ID!, nombre: String, apellido: String, grado: Int): Soldado
     deleteSoldado(id: ID!): String
 
-    createSoldadoServicio(idSoldado: Float, idServicio: Float, fechaServicio: String): SoldadoServicio
-    deleteSoldadoServicio(idSoldado: Float, idServicio: Float): Boolean
-
+    createSoldadoServicio(idSoldado: ID, idServicio: ID, fechaServicio: String): SoldadoServicio
+    deleteSoldadoServicio(idSoldado: ID, idServicio: ID): Boolean
 }
-
-
-
