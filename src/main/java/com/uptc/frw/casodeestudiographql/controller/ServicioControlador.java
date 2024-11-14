@@ -18,12 +18,12 @@ public class ServicioControlador {
     private ServicioService servicioService;
 
     @QueryMapping
-    public List<Servicio> finAllServicio() {
+    public List<Servicio> finAllServicios() {
         return servicioService.findAllServicio();
     }
 
     @QueryMapping
-    public Servicio findServicioById(@Argument long id) {
+    public Servicio findServicioById(@Argument Long id) {
         return servicioService.findServicioById(id);
     }
 
@@ -31,6 +31,7 @@ public class ServicioControlador {
     public Servicio createServicio(@Argument String descripcion) {
         Servicio servicio = new Servicio();
         servicio.setDescripcion(descripcion);
+
         return servicioService.saveServicio(servicio);
     }
 

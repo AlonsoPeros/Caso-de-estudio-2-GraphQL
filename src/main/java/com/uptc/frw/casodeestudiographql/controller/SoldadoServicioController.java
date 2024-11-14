@@ -32,11 +32,11 @@ public class SoldadoServicioController {
 
     // Resolver para la mutación createSoldadoServicio
     @MutationMapping
-    public SoldadoServicio createSoldadoServicio(@Argument long idSoldado, @Argument long idServicio, @Argument String fechaServicio) {
+    public SoldadoServicio createSoldadoServicio(@Argument long idSoldado, @Argument long idServicio) {
         SoldadoServicio soldadoServicio = new SoldadoServicio();
         soldadoServicio.setIdSoldado(idSoldado);
         soldadoServicio.setIdServicio(idServicio);
-        soldadoServicio.setFechaServicio(java.sql.Date.valueOf(fechaServicio));
+
 
         return soldadoServicioService.saveSoldadoServicio(soldadoServicio);
     }
