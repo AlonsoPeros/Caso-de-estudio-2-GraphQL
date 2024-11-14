@@ -9,6 +9,7 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -17,26 +18,30 @@ public class SoldadoServicioController {
     @Autowired
     private SoldadoServicioService soldadoServicioService;
 
-    // Resolver para la consulta getSoldadosServicios
+
     @QueryMapping
     public List<SoldadoServicio> getSoldadosServicios() {
         return soldadoServicioService.getAllSoldadosServicios();
     }
 
-    // Resolver para la consulta getSoldadoServicio
+
     @QueryMapping
     public SoldadoServicio getSoldadoServicio(@Argument Long idSoldado, @Argument Long idServicio) {
         SoldadoServicioKey key = new SoldadoServicioKey(idSoldado,idServicio);
-        return soldadoServicioService.getSoldadoServicio(key).orElse(null);
+        return soldadoServicioService.findById(key).orElse(null);
     }
 
-    // Resolver para la mutación createSoldadoServicio
+
     @MutationMapping
-    public SoldadoServicio createSoldadoServicio(@Argument long idSoldado, @Argument long idServicio) {
+    public SoldadoServicio createSoldadoServicio(
+            @Argument Long idSoldado,
+            @Argument Long idServicio,
+            @Argument Date fechaServicio) {
+
         SoldadoServicio soldadoServicio = new SoldadoServicio();
         soldadoServicio.setIdSoldado(idSoldado);
         soldadoServicio.setIdServicio(idServicio);
-
+        soldadoServicio.setFechaServicio(fechaServicio); // Convierte String a Date
 
         return soldadoServicioService.saveSoldadoServicio(soldadoServicio);
     }
@@ -47,5 +52,14 @@ public class SoldadoServicioController {
         SoldadoServicioKey key = new SoldadoServicioKey(idSoldado, idServicio);
         soldadoServicioService.deleteSoldadoServicio(key);
         return true;
+    }
+    @MutationMapping
+    public SoldadoServicio updateSoldadoServicio(
+            @Argument Long idSoldado,
+            @Argument Long idServicio,
+            @Argument Date fechaServicio) {
+
+        SoldadoServicioKey key = new SoldadoServicioKey(idSoldado, idServicio);
+        return soldadoServicioService.update(key, fechaServicio);
     }
 }
