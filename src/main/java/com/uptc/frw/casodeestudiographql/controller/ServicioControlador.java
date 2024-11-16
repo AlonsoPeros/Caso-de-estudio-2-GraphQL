@@ -18,7 +18,7 @@ public class ServicioControlador {
     private ServicioService servicioService;
 
     @QueryMapping
-    public List<Servicio> finAllServicio() {
+    public List<Servicio> findAllServicios() {
         return servicioService.findAllServicio();
     }
 

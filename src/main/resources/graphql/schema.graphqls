@@ -45,7 +45,7 @@ type Query {
     findAllCompanias: [Compania]
     findAllCuartels: [Cuartel]
     findCuartelById(id: ID!): Cuartel
-    finAllServicios: [Servicio]
+    findAllServicios: [Servicio]
     findServicioById(id: ID!): Servicio
     findAllSoldados: [Soldado]
     findSoldadoById(id: ID!): Soldado
