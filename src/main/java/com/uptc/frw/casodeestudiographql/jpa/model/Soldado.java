@@ -1,6 +1,5 @@
 package com.uptc.frw.casodeestudiographql.jpa.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class Soldado {
     @Column(name = "APELLIDOS")
     private String apellido;
     @Column(name = "GRADO")
-    private long grado;
+    private String grado;
     @Column(name = "ID_CUERPO",insertable=false, updatable=false)
     private long idCuerpo;
     @Column(name = "ID_COMPANIA",insertable=false, updatable=false)
@@ -68,11 +67,11 @@ public class Soldado {
         this.apellido = apellido;
     }
 
-    public long getGrado() {
+    public String getGrado() {
         return grado;
     }
 
-    public void setGrado(long grado) {
+    public void setGrado(String grado) {
         this.grado = grado;
     }
 

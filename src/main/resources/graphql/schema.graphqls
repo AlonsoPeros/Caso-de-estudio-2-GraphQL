@@ -23,7 +23,7 @@ type Soldado {
     id: ID!
     nombre: String!
     apellido: String!
-    grado: Int!
+    grado: String!
     cuerpo: Cuerpo!
     compania: Compania!
     cuartel: Cuartel!
@@ -72,13 +72,13 @@ type Mutation {
     createSoldado(
         nombre: String!,
         apellido: String!,
-        grado: Int!,
+        grado: String!,
         idCuartel: ID!,
         idCompania: ID!,
         idCuerpo: ID!
     ): Soldado
 
-    updateSoldado(id: ID!, nombre: String, apellido: String, grado: Int): Soldado
+    updateSoldado(id: ID!, nombre: String, apellido: String, grado: String): Soldado
     deleteSoldado(id: ID!): String
 
     createSoldadoServicio(idSoldado: ID, idServicio: ID, fechaServicio: String): SoldadoServicio

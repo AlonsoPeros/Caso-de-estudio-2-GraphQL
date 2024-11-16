@@ -51,7 +51,7 @@ public class SoldadoService {
         }
     }
 
-    public Soldado updateSoldado(Long id, String nombre, String apellido, Long grado) {
+    public Soldado updateSoldado(Long id, String nombre, String apellido, String grado) {
         Optional<Soldado> soldado = soldadoRepository.findById(id);
         if (soldado.isPresent()) {
             Soldado soldadoExistente = soldado.get();

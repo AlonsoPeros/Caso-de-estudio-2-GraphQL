@@ -44,7 +44,7 @@ public class SoldadoController {
     @MutationMapping
     public Soldado createSoldado(@Argument String nombre,
                                  @Argument String apellido,
-                                 @Argument Long grado,
+                                 @Argument String grado,
                                  @Argument Long idCuartel,
                                  @Argument Long idCompania,
                                  @Argument Long idCuerpo) {
@@ -75,7 +75,7 @@ public class SoldadoController {
     public Soldado updateSoldado(@Argument Long id,
                                  @Argument String nombre,
                                  @Argument String apellido,
-                                 @Argument Long grado) {
+                                 @Argument String grado) {
         return soldadoService.updateSoldado(id, nombre, apellido, grado);
     }
 }
