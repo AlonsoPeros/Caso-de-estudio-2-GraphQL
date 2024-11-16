@@ -20,7 +20,6 @@ public class ServicioService {
     public List<Servicio> findAllServicio() {
         return servicioRepository.findAll();
     }
-
     public Servicio findServicioById(Long id) {
         return  servicioRepository.findById(id).orElse(null);
 

@@ -17,10 +17,10 @@ public class SoldadoServicioKey implements Serializable {
         this.idServicio = idServicio;
     }
 
-    // Constructor vacío
+
     public SoldadoServicioKey() {}
 
-    // Getters y setters
+
     public long getIdSoldado() {
         return idSoldado;
     }
@@ -37,17 +37,5 @@ public class SoldadoServicioKey implements Serializable {
         this.idServicio = idServicio;
     }
 
-    // equals y hashCode
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SoldadoServicioKey that = (SoldadoServicioKey) o;
-        return idSoldado == that.idSoldado && idServicio == that.idServicio;
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idSoldado, idServicio);
-    }
 }

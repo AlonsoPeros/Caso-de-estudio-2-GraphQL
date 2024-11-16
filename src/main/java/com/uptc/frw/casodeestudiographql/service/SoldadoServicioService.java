@@ -7,6 +7,7 @@ import com.uptc.frw.casodeestudiographql.jpa.repository.SoldadoServicioRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,9 +23,10 @@ public class SoldadoServicioService {
     }
 
     // Obtener un SoldadoServicio por su ID
-    public Optional<SoldadoServicio> getSoldadoServicio(SoldadoServicioKey id) {
-        return soldadoServicioRepository.findById(id);
+    public Optional<SoldadoServicio> findById(SoldadoServicioKey key) {
+        return soldadoServicioRepository.findById(key);
     }
+
 
     // Guardar un nuevo SoldadoServicio
     public SoldadoServicio saveSoldadoServicio(SoldadoServicio soldadoServicio) {
@@ -34,5 +36,14 @@ public class SoldadoServicioService {
     // Eliminar un SoldadoServicio
     public void deleteSoldadoServicio(SoldadoServicioKey id) {
         soldadoServicioRepository.deleteById(id);
+    }
+    public SoldadoServicio update(SoldadoServicioKey key, Date fechaServicio) {
+        Optional<SoldadoServicio> soldadoServicioOpt = soldadoServicioRepository.findById(key);
+        if (soldadoServicioOpt.isPresent()) {
+            SoldadoServicio soldadoServicio = soldadoServicioOpt.get();
+            soldadoServicio.setFechaServicio(fechaServicio);
+            return soldadoServicioRepository.save(soldadoServicio);
+        }
+        return null;
     }
 }
